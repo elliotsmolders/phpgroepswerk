@@ -1,0 +1,147 @@
+@use './base/reset';
+@use './base/fonts';
+@use './base/variables' as *;
+@use './base/mixins' as *;
+
+@import "../../icons/style.css";
+// ***** HEADER START *****
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+
+  .logo {
+    width: 300px;
+    margin-left: 200px;
+  }
+  nav {
+    margin-left: auto;
+
+    ul {
+      display: flex;
+      li {
+        margin-right: 10px;
+        margin-left: 10px;
+        a {
+          padding-left: 5px;
+          padding-right: 5px;
+          font-size: 13px;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-family: "Raleway", sans-serif;
+          font-weight: 700;
+          color: $black;
+          &:hover {
+            color: $lightgreen;
+          }
+          &:active {
+            color: $lightgreen;
+          }
+        }
+      }
+    }
+  }
+  .headerIcons {
+    margin-right: 200px;
+    ul {
+      display: flex;
+      li {
+        margin-right: 10px;
+        margin-left: 10px;
+        a {
+          padding-left: 5px;
+          padding-right: 5px;
+          font-size: 13px;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-family: "Raleway", sans-serif;
+          font-weight: 700;
+          color: $black;
+          &:hover {
+            color: $lightgreen;
+          }
+          &:active {
+            color: $lightgreen;
+          }
+        }
+      }
+    }
+  }
+  a.hamburgerMenu {
+    display: none;
+  }
+}
+main {
+  background-color: $grey;
+  min-height: 400px;
+}
+// ***** HEADER MEDIA QUERIES *****
+@media screen and (max-width: 1300px) {
+  header {
+    .logo {
+      margin-left: 100px;
+    }
+    .headerIcons {
+      margin-right: 100px;
+    }
+  }
+}
+@media screen and (max-width: 1100px) {
+  header {
+    .logo {
+      margin-left: 40px;
+    }
+    nav,
+    .headerIcons {
+      ul {
+        li {
+          margin-right: 2px;
+          margin-left: 2px;
+          a {
+            padding-left: 2px;
+            padding-right: 2px;
+          }
+        }
+      }
+    }
+    .headerIcons {
+      margin-right: 40px;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  header {
+    .logo {
+      width: 180px;
+    }
+  }
+}
+@media screen and (max-width: 690px) {
+  header {
+    .logo {
+      margin: 0 auto;
+    }
+    nav {
+      display: none;
+    }
+    .headerIcons {
+      ul {
+        li {
+          a {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    a.hamburgerMenu {
+      margin-left: 40px;
+      display: block;
+      order: -1;
+      font-size: 26px;
+      padding: 3px;
+      color: $black;
+    }
+  }
+}
+// ***** HEADER END *****

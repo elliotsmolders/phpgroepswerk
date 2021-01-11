@@ -447,3 +447,133 @@ body {
   }
 }
 // ***** DETAILPAGE MEDIA QUERIES END *****
+
+// ***** SIGNUP PAGE START *****
+body {
+  &.signup {
+    background-image: url("https://via.placeholder.com/1500");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    .container {
+      display: flex;
+      background-color: rgb(240, 128, 128, 0.3);
+      max-width: 1000px;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 40%;
+        background-color: rgb(0, 0, 0, 0.7);
+
+        .logo {
+          margin-bottom: 50px;
+          a {
+            img {
+              width: 250px;
+            }
+          }
+        }
+        input[type="submit"] {
+          font-size: 28px;
+          font-family: "Raleway", sans-serif;
+          font-weight: 700;
+          color: white;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          &:hover {
+            color: $lightgreen;
+          }
+
+          &:active {
+            color: white;
+          }
+        }
+      }
+      form {
+        background-color: rgb(255, 255, 255, 0.7);
+        min-width: 60%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
+
+        .input_group {
+          input {
+            width: 100%;
+            font-size: 14px;
+            font-family: "Raleway", sans-serif;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid lightgray;
+            color: $black;
+          }
+        }
+        .radio-container {
+          font-size: 14px;
+          font-family: "Raleway", sans-serif;
+          font-weight: 700;
+          margin-bottom: 30px;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: $black;
+        }
+      }
+    }
+  }
+}
+// ***** SIGNUP PAGE END *****
+// ***** SIGNUP PAGE MEDIA QUERIES START *****
+
+@media screen and (max-width: 1000px) {
+  body.signup .container form {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+@media screen and (max-width: 900px) {
+  body.signup {
+    .container {
+      form {
+        width: 100%;
+      }
+      .left {
+        width: 100%;
+        input[type="submit"] {
+          font-size: 18px;
+          margin-top: 8px;
+          margin-bottom: 15px;
+        }
+        .logo {
+          margin-top: 15px;
+          margin-bottom: 0;
+          a {
+            img {
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  body.signup .container form {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// ***** SIGNUP PAGE MEDIA QUERIES END *****

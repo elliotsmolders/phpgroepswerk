@@ -6,9 +6,6 @@
 @import "../../icons/style.css";
 // ***** HEADER START *****
 header {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  color: white;
   width: 100%;
   display: flex;
   align-items: center;
@@ -261,7 +258,6 @@ body {
 // ***** DETAILPAGE START *****
 body {
   &.detail {
-    background-color: rgb(223, 223, 223);
     .container {
       width: 90%;
       margin-left: auto;
@@ -581,3 +577,251 @@ body {
 }
 
 // ***** SIGNUP PAGE MEDIA QUERIES END *****
+
+// ***** SHOPPING CART START *****
+
+body.shopping_cart {
+  h1 {
+    color: gray;
+    font-size: 36px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    width: 90%;
+    max-width: 1300px;
+    padding-top: 20px;
+    margin: 20px auto;
+  }
+  .container {
+    background-color: rgb(0, 0, 255, 0.2);
+    width: 90%;
+    max-width: 1300px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    table {
+      tr {
+        th {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          font-size: 16px;
+          font-family: "Raleway", sans-serif;
+          font-weight: 400;
+          color: $lightgreen;
+          border-bottom: 2px solid lightgray;
+          background-color: white;
+          text-align: center;
+          &.table_header_product_name {
+            text-align: left;
+            padding-left: 50px;
+          }
+        }
+        td {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          border-bottom: 1px solid lightgray;
+          background-color: white;
+          text-align: center;
+          &.table_icon {
+            text-align: center;
+            vertical-align: middle;
+            width: 50px;
+            padding-right: 15px;
+
+            a {
+              padding: 2px;
+              color: $lightgreen;
+              &:hover {
+                opacity: 0.7;
+              }
+              &:active {
+                color: red;
+              }
+            }
+          }
+          &.table_image {
+            height: 100px;
+            width: 100px;
+            a {
+              img {
+                &:hover,
+                &:active {
+                  opacity: 0.8;
+                }
+              }
+            }
+          }
+          &.table_product_name {
+            padding-left: 50px;
+            vertical-align: middle;
+            text-align: left;
+
+            a {
+              padding: 2px;
+              color: black;
+              font-size: 12px;
+              font-family: "Raleway", sans-serif;
+              font-weight: 400;
+              text-decoration: none;
+              &:hover {
+                color: $lightgreen;
+              }
+            }
+          }
+          &.table_price {
+            padding: 0 50px;
+            vertical-align: middle;
+            color: black;
+            font-size: 12px;
+            font-family: "Raleway", sans-serif;
+            font-weight: 400;
+          }
+          &.table_quantity {
+            padding: 0 50px;
+            vertical-align: middle;
+            color: black;
+            font-size: 12px;
+            font-family: "Raleway", sans-serif;
+            font-weight: 400;
+            button {
+              width: 20px;
+              height: 20px;
+              border: 1px solid transparent;
+              outline: none;
+              border-radius: 4px;
+              color: black;
+              background-color: lightgray;
+              align-self: center;
+              &:hover {
+                opacity: 0.7;
+              }
+              &:active {
+                color: $lightgreen;
+              }
+            }
+            input {
+              height: 20px;
+              background-color: lightgray;
+              color: black;
+              font-size: 12px;
+              font-family: "Raleway", sans-serif;
+              font-weight: 400;
+              text-align: center;
+              border: 1px solid black;
+              border: none;
+              width: 30px;
+              outline: none;
+            }
+            // this removes the increment arrows from the input field
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+          &.table_total {
+            padding: 0 50px;
+            vertical-align: middle;
+            color: black;
+            font-size: 12px;
+            font-family: "Raleway", sans-serif;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .buttons {
+      margin-left: auto;
+    }
+  }
+}
+// ***** SHOPPING CART END *****
+// ***** SHOPPING CART MEDIA QUERIES START *****
+@media screen and (max-width: 750px) {
+  body.shopping_cart {
+    .container {
+      table {
+        tr {
+          th {
+            &.table_header_product_name {
+              padding-left: 15px;
+              width: 50px;
+            }
+          }
+          td {
+            &.table_product_name {
+              width: 50px;
+              padding-left: 15px;
+            }
+            &.table_price,
+            &.table_quantity,
+            &.table_total {
+              padding: 0 15px;
+            }
+          }
+        }
+      }
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 0;
+        .update_cart {
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  body.shopping_cart .container .buttons {
+    .update_cart {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .checkout {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  body.shopping_cart .container table {
+    tr th.thumbnail_header {
+      display: none;
+    }
+    tr td.table_image {
+      display: none;
+    }
+  }
+}
+// ***** SHOPPING CART MEDIA QUERIES END *****
+// &.quantity_header {
+//   width: 80px;
+//   padding: 0 15px;
+// }
+//BUTTON STYLING
+body {
+  .green_button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+    margin: 5px;
+    padding: 0 22px;
+    font-size: 14px;
+    font-family: "Raleway", sans-serif;
+    height: 40px;
+    line-height: 40px;
+    background-color: #1abc9c;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 3px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+//BUTTON STYLING END

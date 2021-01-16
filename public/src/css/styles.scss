@@ -75,10 +75,7 @@ header {
     display: none;
   }
 }
-main {
-  background-color: $grey;
-  min-height: 400px;
-}
+
 // ***** HEADER END *****
 // ***** HEADER MEDIA QUERIES *****
 @media screen and (max-width: 1300px) {
@@ -261,18 +258,21 @@ body {
 // ***** DETAILPAGE START *****
 body {
   &.detail {
+    height: 50vh;
     .container {
-      background-color: rgba(223, 223, 223);
+      background-color: #f0f0f0;
       width: 90%;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 50px;
+      margin-top: 10px;
       display: flex;
 
       .slider {
-        width: 50%;
+        width: 40%;
         .showcase {
           img {
+            max-height: 100%;
+            max-width: 100%;
             &#image1 {
             }
             &#image2,
@@ -286,6 +286,8 @@ body {
           display: flex;
           justify-content: center;
           .thumbnail_item {
+            max-height: 100%;
+            max-width: 100%;
             padding: 5px;
             &:hover {
               opacity: 0.7;
@@ -294,41 +296,21 @@ body {
         }
       }
       .product_info {
-        width: 50%;
+        width: 60%;
         padding-left: 30px;
         padding-right: 30px;
         padding-bottom: 30px;
         h2 {
+          color: $lightgreen;
           font-size: 48px;
           text-transform: capitalize;
           font-family: "Raleway", sans-serif;
           font-weight: 700;
           margin-bottom: 25px;
         }
-        .button {
-          display: flex;
-          height: 30px;
-          width: 90px;
-          text-align: center;
-          border: 1px solid $lightgreen;
-          border-radius: 4px;
-          outline: none;
-          background: transparent;
-          padding: 2px 4px;
-          cursor: pointer;
-          margin-bottom: 15px;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 20px;
-          &:hover {
-            background-color: rgb(165, 164, 164, 0.1);
-          }
-          a {
-            text-decoration: none;
-            font-size: 12px;
-            font-family: "Raleway", sans-serif;
-            font-weight: 700;
-            color: black;
+        .homeButton {
+          .green_button {
+            margin-left: 0;
           }
         }
         .product_rating {
@@ -376,30 +358,6 @@ body {
               outline: none;
             }
           }
-          .addToCart {
-            display: flex;
-            height: 30px;
-            width: 90px;
-            text-align: center;
-            border: 1px solid $lightgreen;
-            border-radius: 4px;
-            outline: none;
-            background: transparent;
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            &:hover {
-              background-color: rgb(165, 164, 164, 0.1);
-            }
-            a {
-              text-decoration: none;
-              font-size: 12px;
-              font-family: "Raleway", sans-serif;
-              font-weight: 700;
-              color: black;
-            }
-          }
         }
       }
     }
@@ -424,9 +382,8 @@ body {
           h2 {
             text-align: center;
           }
-          .button {
-            margin-left: auto;
-            margin-right: auto;
+          .homeButton {
+            text-align: center;
           }
           .product_rating {
             text-align: center;
@@ -805,7 +762,6 @@ body.shopping_cart {
 body {
   .green_button {
     display: inline-block;
-    position: relative;
     cursor: pointer;
     outline: none;
     white-space: nowrap;
@@ -824,7 +780,7 @@ body {
     border-radius: 3px;
     border-bottom: 3px solid rgba(0, 0, 0, 0.15);
     &:hover {
-      opacity: 0.9;
+      opacity: 0.8;
     }
   }
 }

@@ -2,13 +2,16 @@
 
 require_once "../resources/lib/html_components.php";
 
-printHead();
+printHead('home');
 printNav();
-
+printHomeTop();
+//can print as many products as you want
+printHomeProduct();
+printHomeBottom();
 printFooter();
 
+
 ?>
-<p>home</p>
 </body>
 </html>
 

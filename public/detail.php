@@ -1,8 +1,12 @@
 <?php
-require_once "../resources/templates/html_components.php";
 
-printHead();
-printnav();
+require_once "../resources/lib/html_components.php";
+
+printHead("detail");
+printNav();
+printDetail();
+
 ?>
 </body>
 </html>
+

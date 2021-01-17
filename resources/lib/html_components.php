@@ -25,3 +25,7 @@ function printSignup(){
     $html = file_get_contents("../resources/templates/signup.html");
     print $html;
 }
+function printFooter(){
+    $footer = file_get_contents("../resources/templates/footer.html");
+    print $footer;
+}

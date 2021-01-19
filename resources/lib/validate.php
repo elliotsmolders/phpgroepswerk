@@ -1,35 +1,55 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 require_once 'autoload.php';
 
-function ValidateUsrPassword($password)
+// checks if email already exists in database
+function CheckUniqueUsrEmail( $email )
 {
-    if (strlen($password) < 8) {
-        $_SESSION['errors']['usr_password_error'] = "Het wachtwoord moet minstens 8 tekens bevatten";
+    $sql = "SELECT * FROM klanten WHERE kla_email='" . $email . "'";
+    $rows = GetData($sql);
+
+    if (count($rows) > 0)
+    {
+        $_SESSION['errors']['usr_email_error'] = "Er bestaat al een gebruiker met dit e-mailadres";
+        print 'error email';
         return false;
     }
 
     return true;
 }
-
-function ValidateUsrEmail($email)
+// checks if username already exists in database
+function CheckUniqueUsrUsername( $username )
 {
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return true;
-    } else {
-        $_SESSION['errors']['usr_email_error'] = "Geen geldig e-mailadres!";
-        return false;
-    }
-}
-
-function CheckUniqueUsrEmail($email)
-{
-    $sql = "SELECT * FROM klanten WHERE kla_email='" . $email . "'";
+    $sql = "SELECT * FROM klanten WHERE kla_username='" . $username . "'";
     $rows = GetData($sql);
 
-    if (count($rows) > 0) {
-        $_SESSION['errors']['usr_email_error'] = "Er bestaat al een gebruiker met dit e-mailadres";
+    if (count($rows) > 0)
+    {
+        $_SESSION['errors']['usr_username_error'] = "Er bestaat al een gebruiker met dit username";
+        print 'error user';
+        return false;
+    }
+
+    return true;
+}
+//checks if password length >8
+function ValidateUsrPasswordLength( $password )
+{
+    if ( strlen($password) < 8 )
+    {
+        $_SESSION['errors']['usr_password_length_error'] = "Het wachtwoord moet minstens 8 tekens bevatten";
+        print 'password length error';
+        return false;
+    }
+
+    return true;
+}
+// checks if password = confirm password
+function ValidateUsrPasswordConfirm( $password,$confirm_password )
+{
+    if ( $password !== $confirm_password )
+    {
+        $_SESSION['errors']['usr_password_conirm_error'] = "Het wachtwoord moet hetzelfde zijn";
+        print 'password confirm error';
         return false;
     }
 

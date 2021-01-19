@@ -1,7 +1,6 @@
 <?php
 
-require_once "../resources/lib/html_components.php";
-
+require_once '../resources/lib/autoload.php';
 printHead('home');
 printNav();
 printHomeTop();
@@ -13,5 +12,5 @@ printFooter();
 
 ?>
 </body>
-</html>
 
+</html>

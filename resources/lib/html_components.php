@@ -28,12 +28,15 @@ function printShopping()
 function printLogin()
 {
     $html = file_get_contents("../resources/templates/login.html");
+    $csrf = GenerateCSRF('loginform');
+    $html =str_replace("@csrf_token@", $csrf, $html);
     print $html;
 }
 // prints signup form with csrf as argument
-function printSignup($csrf)
+function printSignup()
 {
     $html = file_get_contents("../resources/templates/signup.html");
+    $csrf = GenerateCSRF( "submitform");
     $html =str_replace("@csrf_token@", $csrf, $html);
     print $html;
 }

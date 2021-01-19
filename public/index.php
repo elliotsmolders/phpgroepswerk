@@ -5,7 +5,7 @@ printHead('home');
 printNav();
 printHomeTop();
 //can print as many products as you want
-//select * from products , foreach => printHomeProduct with details of that products
+//select * from products , foreach => printHomeProduct with details of that products, add this to html_components?
 printHomeProduct();
 printHomeBottom();
 printFooter();

@@ -3,6 +3,18 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'autoload.php';
 
+//controleert of het ww minstens 8 tekens lang is
+ValidateUsrPassword($_POST['password_user']);
+//controleert of het in email vorm is
+ValidateUsrEmail($_POST['email_user']);
+//controleert of er al een account met deze email is gekoppeld
+CheckUniqueUsrEmail($_POST['email_user']);
+//terugkeren naar afzender als er een fout is
+if (count($_SESSION['errors']) > 0) {
+    $_SESSION['OLD_POST'] = $_POST;
+    header("Location: ../public/signup.php");
+    exit();
+}
 
 $voornaam = $_POST["voornaam_user"];
 $achternaam = $_POST["achternaam_user"];

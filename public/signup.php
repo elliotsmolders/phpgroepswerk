@@ -2,7 +2,9 @@
 
 require_once '../resources/lib/autoload.php';
 printHead("signup");
-printSignup();
+//add csrf
+$csrf = GenerateCSRF("submitform.php");
+printSignup($csrf);
 
 
 ?>

@@ -1,75 +1,94 @@
 <?php
-function printHead ($class =""){
+function printHead($class = "")
+{
     $header = file_get_contents("../resources/templates/header.html");
-    $header = str_replace("@BODYCLASS@",$class,$header);
+    $header = str_replace("@BODYCLASS@", $class, $header);
     print $header;
 }
 
-function printNav (){
+function printNav()
+{
     $html = file_get_contents("../resources/templates/navbar.html");
     print $html;
 }
-function printDetail(){
+function printDetail()
+{
     $html = file_get_contents("../resources/templates/detail.html");
     print $html;
 }
-function printShopping(){
+function printShopping()
+{
     $html = file_get_contents("../resources/templates/shopping_cart.html");
     print $html;
 }
-function printLogin(){
+function printLogin()
+{
     $html = file_get_contents("../resources/templates/login.html");
     print $html;
 }
-function printSignup(){
+function printSignup($csrf)
+{
     $html = file_get_contents("../resources/templates/signup.html");
+    $html =str_replace("@csrf_token@", $csrf, $html);
     print $html;
 }
-function printFooter(){
+function printFooter()
+{
     $footer = file_get_contents("../resources/templates/footer.html");
     print $footer;
 }
-function printHomeTop(){
+function printHomeTop()
+{
     $html = file_get_contents("../resources/templates/home_top.html");
     print $html;
 }
-function printHomeBottom(){
+function printHomeBottom()
+{
     $html = file_get_contents("../resources/templates/home_bottom.html");
     print $html;
 }
-function printHomeProduct(){
+function printHomeProduct()
+{
     $productHtml = file_get_contents("../resources/templates/product_home.html");
     print $productHtml;
 }
-function printStarFull(){
+function printStarFull()
+{
     $html = file_get_contents("../resources/templates/star_full.html");
     print $html;
 }
-function printStarEmpty(){
+function printStarEmpty()
+{
     $html = file_get_contents("../resources/templates/star_empty.html");
     print $html;
 }
-function printStarHalf(){
+function printStarHalf()
+{
     $html = file_get_contents("../resources/templates/star_half.html");
     print $html;
 }
-function printCartTop(){
+function printCartTop()
+{
     $html = file_get_contents("../resources/templates/shopping_cart_top.html");
     print $html;
 }
-function printCartBottom(){
+function printCartBottom()
+{
     $html = file_get_contents("../resources/templates/shopping_cart_bottom.html");
     print $html;
 }
-function printCartRow(){
+function printCartRow()
+{
     $html = file_get_contents("../resources/templates/shopping_cart_product.html");
     print $html;
 }
-function printDetailTop(){
+function printDetailTop()
+{
     $html = file_get_contents("../resources/templates/detail_top.html");
     print $html;
 }
-function printDetailBottom(){
+function printDetailBottom()
+{
     $html = file_get_contents("../resources/templates/detail_bottom.html");
     print $html;
 }

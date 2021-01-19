@@ -6,13 +6,21 @@
     <button type="submit" form="submitform">Submit</button>
   </div>
   <form action="../resources/lib/save.php" method="POST" id="submitform">
+    <!--security-->
+    <input type="hidden" name="csrf" value="@csrf_token@">
+    <!--end security-->
     <div class="input_group">
-      <input type="text" name="" id="signup_user" placeholder="Username" />
+      <input
+        type="text"
+        name="signup_user"
+        id="signup_user"
+        placeholder="Username"
+      />
     </div>
     <div class="input_group">
       <input
         type="password"
-        name=""
+        name="password_user"
         id="password_user"
         placeholder="Password"
       />
@@ -20,7 +28,7 @@
     <div class="input_group">
       <input
         type="password"
-        name=""
+        name="password_user_confirm"
         id="password_user_confirm"
         placeholder="Confirm Password"
       />
@@ -36,28 +44,61 @@
       <label for="other">Other</label>
     </div>
     <div class="input_group">
-      <input type="text" name="" id="voornaam_user" placeholder="Name" />
-    </div>
-    <div class="input_group">
-      <input type="text" name="" id="achternaam_user" placeholder="Surname" />
-    </div>
-
-    <div class="input_group">
-      <input type="email" name="" id="email_user" placeholder="Email-adress" />
+      <input
+        type="text"
+        name="voornaam_user"
+        id="voornaam_user"
+        placeholder="Name"
+      />
     </div>
     <div class="input_group">
       <input
         type="text"
-        name=""
-        id="straatnaam_user"
-        placeholder="Streetname + nr"
+        name="achternaam_user"
+        id="achternaam_user"
+        placeholder="Surname"
+      />
+    </div>
+
+    <div class="input_group">
+      <input
+        type="email"
+        name="email_user"
+        id="email_user"
+        placeholder="Email-adress"
       />
     </div>
     <div class="input_group">
-      <input type="text" name="" id="gemeente_user" placeholder="City" />
+      <input
+        type="text"
+        name="straatnaam_user"
+        id="straatnaam_user"
+        placeholder="Streetname"
+      />
     </div>
     <div class="input_group">
-      <input type="text" name="" id="postcode_user" placeholder="Postcode" />
+      <input
+        type="text"
+        name="house_number_user"
+        id="house_number_user"
+        placeholder="House Number"
+      />
+    </div>
+    <div class="input_group">
+      <input
+        type="text"
+        name="gemeente_user"
+        id="gemeente_user"
+        placeholder="City"
+      />
+    </div>
+    <div class="input_group">
+      <input
+        type="text"
+        name="postcode_user"
+        id="postcode_user"
+        placeholder="Postcode"
+      />
     </div>
   </form>
 </div>

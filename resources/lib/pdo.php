@@ -37,3 +37,14 @@ function GetData($sql)
         return [];
     }
 }
+function ExecuteSQL($sql)
+{
+    global $conn;
+
+    CreateConnection();
+
+    //define and execute query
+    $result = $conn->query($sql);
+
+    return $result;
+}

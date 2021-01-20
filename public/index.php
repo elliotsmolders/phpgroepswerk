@@ -1,11 +1,15 @@
 <?php
 
 require_once '../resources/lib/autoload.php';
+
 printHead('home');
 printNav();
+?>
+
+<p class="<?php echo isRegistered($msgs['registered'])?>"><?php print_r($msgs['registered']) ; ?></p>
+<?php
 printHomeTop();
 //can print as many products as you want
-//select * from products , foreach => printHomeProduct with details of that products, add this to html_components?
 printHomeProduct();
 printHomeBottom();
 printFooter();

@@ -64,5 +64,7 @@ kla_huisnr,kla_postcode,kla_gemeente,kla_wachtwoord,kla_email,kla_username,kla_g
  VALUES ('$voornaam','$achternaam','$straat','$huisnr','$postcode','$gemeente','$password_encrypted','$email','$username_post','$gender')";
 //executing the sql
     ExecuteSQL($sql);
+    $_SESSION['msgs']['registered'] = "You have been succesfully registered!";
+    header( "Location: ../../public/index.php");
 }
 

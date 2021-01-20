@@ -9,7 +9,7 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" )
 //controle CSRF token
     if ( ! key_exists("csrf", $_POST)) die("Missing CSRF");
 //var_dump($_POST['csrf']);
-//var_dump($_SESSION['lastest_csrf']);
+
     if ( ! hash_equals( $_POST['csrf'], $_SESSION['lastest_csrf'] ) ) die("Problem with CSRF");
 
 //clear csrf token
@@ -35,7 +35,8 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" )
 //terugkeren naar afzender als er een fout is
     if ( count($_SESSION['errors']) > 0 )
     {
-        $_SESSION['OLD_POST'] = $_POST;
+        $_SESSION['OLD_POST_SIGNUP'] = $_POST;
+        $_SESSION['OLD_ERROR'] = $_SESSION['errors'];
         header( "Location: " . $sending_form_uri ); exit();
     }
 

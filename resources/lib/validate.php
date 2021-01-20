@@ -9,7 +9,7 @@ function CheckUniqueUsrEmail( $email )
 
     if (count($rows) > 0)
     {
-        $_SESSION['errors']['usr_email_error'] = "Er bestaat al een gebruiker met dit e-mailadres";
+        $_SESSION['errors']['usr_email_error'] = "This email-adress is already registered";
         //print 'error email';
         return false;
     }
@@ -24,8 +24,8 @@ function CheckUniqueUsrUsername( $username )
 
     if (count($rows) > 0)
     {
-        $_SESSION['errors']['usr_username_error'] = "Er bestaat al een gebruiker met dit username";
-        //print 'error user';
+        $_SESSION['errors']['usr_username_error'] = "This username already exists";
+        //print $_SESSION['errors']['usr_username_error'];
         return false;
     }
 
@@ -36,7 +36,7 @@ function ValidateUsrPasswordLength( $password )
 {
     if ( strlen($password) < 8 )
     {
-        $_SESSION['errors']['usr_password_length_error'] = "Het wachtwoord moet minstens 8 tekens bevatten";
+        $_SESSION['errors']['usr_password_length_error'] = "The password needs to contain at least 8 characters";
         //print 'password length error';
         return false;
     }
@@ -48,7 +48,7 @@ function ValidateUsrPasswordConfirm( $password,$confirm_password )
 {
     if ( $password !== $confirm_password )
     {
-        $_SESSION['errors']['usr_password_conirm_error'] = "Het wachtwoord moet hetzelfde zijn";
+        $_SESSION['errors']['usr_password_confirm_error'] = "The passwords do not match";
         //print 'password confirm error';
         return false;
     }

@@ -5,6 +5,7 @@ require_once 'connection_data.php';
 require_once 'html_components.php';
 require_once 'pdo.php';
 require_once 'security.php';
+require_once 'errors.php';
 //initialize $errors array
 $errors = [];
 

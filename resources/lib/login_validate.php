@@ -9,11 +9,6 @@ $user_data = LoginCheck();
 if ( $user_data )
 {   $_SESSION['user'] = $user_data[0];
     $_SESSION['msgs']['login'] = "Signed in as " . $_SESSION['user']['kla_username'];
-    print_r($_SESSION['user']);
-    print 'logincheck() passed';
-
-    print'<br>';
-    print'test';
     print_r($_SESSION['user']['kla_username']);
     header("Location: ../../public/index.php");
 }

@@ -1,6 +1,7 @@
 <?php
 
 require_once '../resources/lib/autoload.php';
+
 printHead("shopping_cart");
 printNav();
 printCartTop();

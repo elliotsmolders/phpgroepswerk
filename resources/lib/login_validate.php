@@ -7,14 +7,21 @@ require_once 'autoload.php';
 $user_data = LoginCheck();
 
 if ( $user_data )
-{   $_SESSION['user'] = $user_data;
-    $_SESSION['msgs'][] = "Welkom, " . $_SESSION['user']['usr_voornaam'];
+{   $_SESSION['user'] = $user_data[0];
+    $_SESSION['msgs']['login'] = "Signed in as " . $_SESSION['user']['kla_username'];
+    print_r($_SESSION['user']);
+    print 'logincheck() passed';
+
+    print'<br>';
+    print'test';
+    print_r($_SESSION['user']['kla_username']);
     header("Location: ../../public/index.php");
 }
 else
 {
     unset( $_SESSION['user']);
-    print "HELAAS!";
+    $_SESSION['msgs']['failed_user'] = $_POST['login_user'];
+    header("Location: ../../public/login.php");
 }
 function LoginCheck()
 {
@@ -33,17 +40,19 @@ function LoginCheck()
         $sending_form_uri = $_SERVER['HTTP_REFERER'];
 
         //
-        $usr= $_POST['login_user'];
-        $pass = $_POST['login_password'];
+
         if ( ! key_exists("login_user", $_POST ) )
         {
-            $_SESSION['errors']['login_password_length_error'] = "De gebruikersnaam is niet correct ingevuld";
+            $_SESSION['errors']['login_password_length_error'] = "No username entered";
         }
-        if ( ! key_exists("login_password", $_POST ) OR ValidateUsrPasswordLength($pass))
+        if ( ! key_exists("login_password", $_POST ))
         {
-            $_SESSION['errors']['login_password_error'] = "Het wachtwoord is niet ingevuld";
+            $_SESSION['errors']['login_password_error'] = "No password entered";
         }
-        //terugkeren naar formulier als error
+        //
+        $usr= $_POST['login_user'];
+        $pass = $_POST['login_password'];
+        ValidateUsrPasswordLength($pass);
 
         //search user in database
         $sql = "SELECT kla_wachtwoord FROM klanten WHERE kla_username='$usr' ";
@@ -54,8 +63,12 @@ function LoginCheck()
                 if ( password_verify( $pass, $data[0]["kla_wachtwoord"] ) )
                     // returns all the users data on succesfull login
                     return GetData("SELECT * FROM klanten WHERE kla_username='$usr' ");
-
+                else{
+                    $_SESSION['errors']['login_password_error'] = "Incorrect password";
+                    return null;
+                }
         }
+        $_SESSION['errors']['login_username_error'] = "Incorrect username";
         return null;
     }
 }

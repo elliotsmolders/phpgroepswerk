@@ -10,36 +10,20 @@ function printHead($class = "")
 function printNav()
 {
     $html = file_get_contents("../resources/templates/navbar.html");
-    print $html;
+    if(isset($_SESSION['user'])){
+        $html = file_get_contents("../resources/templates/navbar.html");
+        $html = str_replace('hidden @HIDDEN@', 'show',$html);
+        $html = str_replace("@LOGGEDOUT@",'hidden',$html);
+        $html = str_replace('@USERNAME@',$_SESSION['user']['kla_username'],$html);
+       print $html;
+    }
+    else{
+        print $html;
+    }
 }
-//prints detail.html
-function printDetail()
-{
-    $html = file_get_contents("../resources/templates/detail.html");
-    print $html;
-}
-//prints shopping_cart.html
-function printShopping()
-{
-    $html = file_get_contents("../resources/templates/shopping_cart.html");
-    print $html;
-}
-//prints login.html
-function printLogin()
-{
-    $html = file_get_contents("../resources/templates/login.html");
-    $csrf = GenerateCSRF('loginform');
-    $html =str_replace("@csrf_token@", $csrf, $html);
-    print $html;
-}
-// prints signup form with csrf as argument
-function printSignup()
-{
-    $html = file_get_contents("../resources/templates/signup.html");
-    $csrf = GenerateCSRF( "submitform");
-    $html =str_replace("@csrf_token@", $csrf, $html);
-    print $html;
-}
+
+
+
 //prints footer.html
 function printFooter()
 {
@@ -116,6 +100,7 @@ function printDetailBottom()
 function isRegistered($x)
 {return $x ? 'registered' : 'hidden';
 }
+
 /*
 function printRegistrationInput($type,$placeholder,$id,$name,$value){
     $html = file_get_contents("../resources/templates/registration_form_input.html");

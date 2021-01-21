@@ -4,8 +4,7 @@ CheckAccess();
 function CheckAccess()
 {
     global $public_access;
-    if ( ! $public_access AND ! isset($_SESSION['user']) )
-    {
+    if (!isset($_SESSION['user']) and !$public_access ){
         GoToNoAccess();
     }
 }

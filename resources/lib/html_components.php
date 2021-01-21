@@ -42,34 +42,47 @@ function printHomeBottom()
     $html = file_get_contents("../resources/templates/home_bottom.html");
     print $html;
 }
-// product items
-function printHomeProduct()
+// product items (need to add brand+category)
+function printHomeProduct($image,$price,$name,$rating,$id)
 {
     $productHtml = file_get_contents("../resources/templates/product_home.html");
+    $productHtml =str_replace("@PRODUCTNAME@",$name,$productHtml);
+    $productHtml =str_replace("@PRICE@",$price,$productHtml);
+    $productHtml =str_replace("@IMAGE@",$image,$productHtml);
+    $productHtml =str_replace("@PRODUCTID@",$id,$productHtml);
     print $productHtml;
+
+    $fullstars=floor($rating);
+    $halfstars=ceil($rating-$fullstars);
+    $emptystars=5-$fullstars-$halfstars;
+    $starhtml=printStarFull($fullstars).printStarHalf($halfstars).printStarEmpty($emptystars);
+    print $starhtml;
+    print file_get_contents("../resources/templates/stars.html");
+
 }
 //prints a full star
-function printStarFull()
+function printStarFull($x)
 {
     $html = file_get_contents("../resources/templates/star_full.html");
-    print $html;
+    print str_repeat($html,$x);
 }
 //prints an empty star
-function printStarEmpty()
+function printStarEmpty($x)
 {
     $html = file_get_contents("../resources/templates/star_empty.html");
-    print $html;
+    print str_repeat($html,$x);
 }
 //prints a half star
-function printStarHalf()
+function printStarHalf($x)
 {
     $html = file_get_contents("../resources/templates/star_half.html");
-    print $html;
+    print str_repeat($html,$x);
 }
 //prints top half of shopping cart (untill where we can add our product rows)
 function printCartTop()
 {
     $html = file_get_contents("../resources/templates/shopping_cart_top.html");
+    $html = str_replace("@USERNAME@",$_SESSION["user"]["kla_username"],$html);
     print $html;
 }
 // bottom half of shopping cart (starts after the last row)

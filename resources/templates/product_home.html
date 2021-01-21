@@ -2,7 +2,7 @@
 <div class="product">
   <div class="productImage">
     <!-- link image from db -->
-    <a href=""><img src="https://via.placeholder.com/500" alt="" /></a>
+    <a href="detail.php?product=@PRODUCTID@"><img src="./images/@IMAGE@" alt="" /></a>
     <div class="overlay">
       <!-- clicking left should add that item to cart -->
       <a href="" class="left"
@@ -16,41 +16,13 @@
         </div></a
       >
       <!-- clicking right should redirect to that products detailpage -->
-      <a href="" class="right"
+      <a href="detail.php?product=@PRODUCTID@" class="right"
         ><div class="toDetail"><p>Go to product</p></div></a
       >
     </div>
   </div>
   <div class="productDescription">
-    <a href="">test product 1</a>
-    <p>€100.00</p>
-    <!-- load in stars according to product rating from star_empty/full/half .html (placeholder with 5 full)-->
+    <a href="">@PRODUCTNAME@</a>
+    <p>€@PRICE@</p>
     <div class="rating">
-      <div class="star">
-        <svg class="icon icon-star-full">
-          <use xlink:href="./icons/symbol-defs.svg#icon-star-full"></use>
-        </svg>
-      </div>
-      <div class="star">
-        <svg class="icon icon-star-full">
-          <use xlink:href="./icons/symbol-defs.svg#icon-star-full"></use>
-        </svg>
-      </div>
-      <div class="star">
-        <svg class="icon icon-star-full">
-          <use xlink:href="./icons/symbol-defs.svg#icon-star-full"></use>
-        </svg>
-      </div>
-      <div class="star">
-        <svg class="icon icon-star-full">
-          <use xlink:href="./icons/symbol-defs.svg#icon-star-full"></use>
-        </svg>
-      </div>
-      <div class="star">
-        <svg class="icon icon-star-full">
-          <use xlink:href="./icons/symbol-defs.svg#icon-star-full"></use>
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
+

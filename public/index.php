@@ -1,9 +1,7 @@
 <?php
 $public_access = true;
-
 require_once '../resources/lib/autoload.php';
 print_r($msgs);
-
 printHead('home');
 printNav();
 ?>
@@ -13,8 +11,15 @@ printNav();
 
 <?php
 printHomeTop();
+
 //can print as many products as you want
-printHomeProduct();
+$data=GetData('SELECT * FROM products');
+print_r($data);
+foreach ( $data as $row )
+{
+
+printHomeProduct($row['pro_image1'],$row['pro_price'],$row['pro_name'],$row['pro_rating'],$row["pro_unique_id"]);
+}
 printHomeBottom();
 printFooter();
 

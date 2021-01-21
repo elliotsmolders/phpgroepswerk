@@ -100,7 +100,9 @@ function printDetailBottom()
 function isRegistered($x)
 {return $x ? 'registered' : 'hidden';
 }
-
+function isLoggedOut($x){
+    return $x ? 'logoutmessage' : 'hidden';
+}
 /*
 function printRegistrationInput($type,$placeholder,$id,$name,$value){
     $html = file_get_contents("../resources/templates/registration_form_input.html");

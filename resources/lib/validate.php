@@ -1,4 +1,6 @@
 <?php
+$public_access = true;
+
 require_once 'autoload.php';
 
 // checks if email already exists in database

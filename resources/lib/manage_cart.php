@@ -16,6 +16,7 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" ){
     $name = $_POST['product_name'];
     //checking that quantity is an integer
     if($quantity > 0 ){
+
         //if we already have one of the item in the cart, add our new quantity to it
         if(isset( $_SESSION['cart']["$id"])){
             $_SESSION['cart']["$id"] += $quantity;
@@ -27,23 +28,29 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" ){
             $_SESSION['msgs']['addedToCart'] = "You have succesfully added $quantity $name to your cart";
         }
     }
+
     else{
-        //remove quantity from item in cart if item in cart exists
-        if(isset( $_SESSION['cart']["$id"]) AND ( $_SESSION['cart']["$id"]) + $quantity > 0){
-            $_SESSION['cart']["$id"] += $quantity;
-            $_SESSION['msgs']['removedCart'] = "You have succesfully removed $quantity $name to your cart";
+        if($quantity < 0){
+            //remove quantity from item in cart if item in cart exists
+            if(isset( $_SESSION['cart']["$id"]) AND ( $_SESSION['cart']["$id"]) + $quantity > 0){
+                $_SESSION['cart']["$id"] += $quantity;
+                $_SESSION['msgs']['removedCart'] = "You have succesfully removed $quantity $name to your cart";
+
+            }
+            //if the product exists in our session cart and we remove more than we have, remove the item from cart
+            if(isset( $_SESSION['cart']["$id"]) AND ( $_SESSION['cart']["$id"]) + $quantity <= 0){
+                $_SESSION['msgs']['removedCart'] = "You have succesfully removed ".($_SESSION['cart']["$id"])." $name from your cart";
+                unset( $_SESSION['cart']["$id"]);
+
+            }
+            //
+
+            else{
+                $_SESSION['msgs']['removedCart'] = "There weren't any $name in your shopping cart";;
+            }
 
         }
-        //if the product exists in our session cart and we remove more than we have, remove the item from cart
-        if(isset( $_SESSION['cart']["$id"]) AND ( $_SESSION['cart']["$id"]) + $quantity <= 0){
-            $_SESSION['msgs']['removedCart'] = "You have succesfully removed ".($_SESSION['cart']["$id"])." $name from your cart";
-            unset( $_SESSION['cart']["$id"]);
 
-        }
-        //
-        else{
-            $_SESSION['msgs']['removedCart'] = "There weren't any $name in your shopping cart";;
-        }
     }
 }
 

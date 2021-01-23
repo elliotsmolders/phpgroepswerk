@@ -1,20 +1,23 @@
 <?php
+error_reporting( E_ALL );
+ini_set( 'display_errors', 1 );
 $public_access = true;
 require_once '../resources/lib/autoload.php';
 print_r($msgs);
+print_r($_POST);
+print_r($_SESSION['cart']);
 printHead('home');
 printNav();
 ?>
-
+<!-- printing out the $msgs -->
 <p class="<?php echo isRegistered($msgs['registered'])?>" id="register_message"><?php print_r($msgs['registered']) ; ?></p>
 <p class="<?php echo isLoggedOut($msgs['logged_out'])?>" id="logout_message"><?php print_r($msgs['logged_out']) ; ?></p>
 
 <?php
 printHomeTop();
 
-//can print as many products as you want
+//get all the data of all products
 $data=GetData('SELECT * FROM products');
-print_r($data);
 foreach ( $data as $row )
 {
 
@@ -26,7 +29,7 @@ printFooter();
 
 ?>
 <script>
-    // close the div in 5 secs
+    // fade away messages after 3 seconds, delete them after 10
     window.setTimeout("hideMessage1();", 3000);
     window.setTimeout("closeMessage1();", 10000);
     window.setTimeout("hideMessage2();", 3000);

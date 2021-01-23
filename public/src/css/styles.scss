@@ -305,21 +305,26 @@ body {
 
 // ***** DETAILPAGE START *****
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   &.detail {
     .container {
       background-color: #f0f0f0;
       width: 90%;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 10px;
+      margin-top: 25px;
+      padding-top: 40px;
+      padding-bottom: 40px;
       display: flex;
-
       .slider {
         width: 40%;
         .showcase {
           img {
-            max-height: 100%;
-            max-width: 100%;
+            margin: 0 auto;
+            max-height: 400px;
+            max-width: 400px;
             &#image1 {
             }
             &#image2,
@@ -330,12 +335,22 @@ body {
           }
         }
         .thumbnail_container {
+          max-width: 400px;
           display: flex;
-          justify-content: center;
+          margin: 0 auto;
+          justify-content: space-between;
           .thumbnail_item {
-            max-height: 100%;
-            max-width: 100%;
-            padding: 5px;
+            width: 25%;
+            padding-top: 5px;
+            a {
+              img {
+                margin: 0 auto;
+                width: 90%;
+                &:last-child {
+                  padding-right: 0;
+                }
+              }
+            }
             &:hover {
               opacity: 0.7;
             }
@@ -392,8 +407,8 @@ body {
           margin-bottom: 20px;
         }
         ul {
-          margin-top: 85px;
-          margin-bottom: 25px;
+          margin-top: 20px;
+          margin-bottom: 10px;
           li {
             margin-bottom: 5px;
             font-family: "Raleway", sans-serif;
@@ -424,9 +439,10 @@ body {
         flex-direction: column;
         .slider {
           width: 100%;
+          margin-bottom: 20px;
 
           .thumbnail_container {
-            margin-bottom: 20px;
+            display: none;
           }
         }
         .product_info {
@@ -465,7 +481,6 @@ body {
   }
 }
 // ***** DETAILPAGE MEDIA QUERIES END *****
-
 // ***** SIGNUP PAGE START *****
 body {
   &.signup {
@@ -615,6 +630,8 @@ body {
 // ***** SHOPPING CART START *****
 
 body.shopping_cart {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   h1 {
     color: gray;
@@ -677,6 +694,9 @@ body.shopping_cart {
             width: 100px;
             a {
               img {
+                height: 100px;
+                width: 100px;
+
                 &:hover,
                 &:active {
                   opacity: 0.8;
@@ -842,6 +862,9 @@ body.shopping_cart {
 
 // ***** HOME START *****
 body.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   p.registered {
     transition: all 8s ease;
     padding-top: 10px;
@@ -915,7 +938,7 @@ body.home {
   .containerProducts {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     min-height: 100px;
     //remove bgc when done
     background-color: rgb(255, 255, 0, 0.2);
@@ -929,11 +952,12 @@ body.home {
         position: relative;
         margin-right: 10px;
         margin-top: 10px;
+        width: 200px;
 
         a {
           img {
-            height: 250px;
-            width: 200px;
+            width: 100%;
+
             &:hover {
               opacity: 0.9;
             }

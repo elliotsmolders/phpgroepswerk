@@ -10,8 +10,13 @@ function printHead($class = "")
 function printNav()
 {
     $html = file_get_contents("../resources/templates/navbar.html");
+    if(isset($_SESSION['cart']) && count($_SESSION['cart'])!=0){
+        $html = str_replace('@SHOPPINGCARTNUMBER@',count($_SESSION['cart']),$html);
+    }
+    else{
+        $html = str_replace('@SHOPPINGCARTNONUMBER@','hidden',$html);
+    }
     if(isset($_SESSION['user'])){
-        $html = file_get_contents("../resources/templates/navbar.html");
         $html = str_replace('hidden @HIDDEN@', 'show',$html);
         $html = str_replace("@LOGGEDOUT@",'hidden',$html);
         $html = str_replace('@USERNAME@',$_SESSION['user']['kla_username'],$html);

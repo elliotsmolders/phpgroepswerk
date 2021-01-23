@@ -1,11 +1,17 @@
 <!-- 1 product in homepage -->
 <div class="product">
+  <form  method="POST" action="../resources/lib/manage_cart.php" id="cart_form@PRODUCTID@">
+    <input type="hidden" name="product_id" value="@PRODUCTID@">
+    <input type="hidden" name="quantity" value="1">
+  </form>
+
+
   <div class="productImage">
     <!-- link image from db -->
     <a href="detail.php?product=@PRODUCTID@"><img src="./images/@IMAGE@" alt="" /></a>
     <div class="overlay">
       <!-- clicking left should add that item to cart -->
-      <a href="" class="left"
+      <a href="javascript:{}" onclick="document.getElementById('cart_form@PRODUCTID@').submit();" class="left"
         ><div class="cart">
           <div class="logo">
             <svg class="icon icon-cart">

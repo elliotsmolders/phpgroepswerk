@@ -92,21 +92,51 @@ function printCartBottom()
     print $html;
 }
 // product rows for shopping_cart.html
-function printCartRow()
+function printCartRow($price,$image,$name,$quantity,$id)
 {
     $html = file_get_contents("../resources/templates/shopping_cart_product.html");
+    $html = str_replace("@PRICE@",$price,$html);
+    $html = str_replace("@PRODUCTIMAGE@",$image,$html);
+    $html = str_replace("@PRODUCTNAME@",$name,$html);
+    $html = str_replace("@PRODUCTID@",$id,$html);
+    $html = str_replace("@QUANTITY@",$quantity,$html);
+    $html = str_replace("@TOTAL@",$quantity*$price,$html);
+
     print $html;
 }
 //prints top half of detail.html till where we add our rating
-function printDetailTop()
+function printDetailTop($image1,$image2,$image3,$image4,$name,$price,$rating)
 {
     $html = file_get_contents("../resources/templates/detail_top.html");
+    $html = str_replace("@IMAGE1@",$image1,$html);
+    $html = str_replace("@IMAGE2@",$image2,$html);
+    $html = str_replace("@IMAGE3@",$image3,$html);
+    $html = str_replace("@IMAGE4@",$image4,$html);
+    $html = str_replace("@NAME@",$name,$html);
+    $html = str_replace("@PRICE@",$price,$html);
     print $html;
+    $fullstars=floor($rating);
+    $halfstars=ceil($rating-$fullstars);
+    $emptystars=5-$fullstars-$halfstars;
+    $starhtml=printStarFull($fullstars).printStarHalf($halfstars).printStarEmpty($emptystars);
+    print $starhtml;
+}
+function available($x){
+    return $x == "Y" ? 'in stock' : 'not in stock';
+}
+function roundIfInt($x){
+    return floor($x) == $x ? floor($x): round($x,1);
 }
 //prints bottom half of detail.html from after the rating
-function printDetailBottom()
+function printDetailBottom($category,$brand,$description,$availability,$rating,$id)
 {
     $html = file_get_contents("../resources/templates/detail_bottom.html");
+    $html = str_replace("@DESCRIPTION@",$description,$html);
+    $html = str_replace("@RATING@",roundIfInt($rating),$html);
+    $html = str_replace("@BRAND@",$brand,$html);
+    $html = str_replace("@CATEGORY@",$category,$html);
+    $html = str_replace("@AVAILABILITY@",$availability,$html);
+    $html = str_replace("@PRODUCTID@",$id,$html);
     print $html;
 }
 // checks if $msgs['registered] exists

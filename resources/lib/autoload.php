@@ -30,3 +30,4 @@ if ( key_exists( 'msgs', $_SESSION ) AND is_array( $_SESSION['msgs']) )
     $_SESSION['msgs'] = [];
 
 }
+

@@ -1,23 +1,26 @@
 <!-- row of 1 product in shopping cart -->
 <tr>
   <td class="table_icon">
-    <a href="" class="remove_item"
+    <form  method="POST" action="../resources/lib/unset_item.php" id="unset_form@PRODUCTID@">
+      <input type="hidden" name="product_id" value="@PRODUCTID@">
+    </form>
+    <a href="javascript:{}" onclick="document.getElementById('unset_form@PRODUCTID@').submit();" class="remove_item"
       ><svg class="icon icon-bin2">
         <use xlink:href="./icons/symbol-defs.svg#icon-bin2"></use>
       </svg>
     </a>
   </td>
   <td class="table_image">
-    <a href="">
-      <img src="https://via.placeholder.com/150" alt="product image" />
+    <a href="detail.php?product=@PRODUCTID@">
+      <img src="./images/@PRODUCTIMAGE@" alt="product image" />
     </a>
   </td>
-  <td class="table_product_name"><a href="">product</a></td>
-  <td class="table_price">6€</td>
+  <td class="table_product_name"><a href="detail.php?product=@PRODUCTID@">@PRODUCTNAME@</a></td>
+  <td class="table_price">@PRICE@€</td>
   <td class="table_quantity">
     <button class="minus">-</button>
-    <input type="number" name="" id="quantity" value="1" min="0" />
+    <input type="number" name="" id="quantity" value="@QUANTITY@" min="0" />
     <button class="plus">+</button>
   </td>
-  <td class="table_total">6€</td>
+  <td class="table_total">@TOTAL@€</td>
 </tr>

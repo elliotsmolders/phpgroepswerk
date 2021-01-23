@@ -133,7 +133,7 @@ function roundIfInt($x){
     return floor($x) == $x ? floor($x): round($x,1);
 }
 //prints bottom half of detail.html from after the rating
-function printDetailBottom($category,$brand,$description,$availability,$rating,$id)
+function printDetailBottom($category,$brand,$description,$availability,$rating,$id,$name)
 {
     $html = file_get_contents("../resources/templates/detail_bottom.html");
     $html = str_replace("@DESCRIPTION@",$description,$html);
@@ -141,6 +141,7 @@ function printDetailBottom($category,$brand,$description,$availability,$rating,$
     $html = str_replace("@BRAND@",$brand,$html);
     $html = str_replace("@CATEGORY@",$category,$html);
     $html = str_replace("@AVAILABILITY@",$availability,$html);
+    $html = str_replace("@PRODUCTNAME@",$name,$html);
     $html = str_replace("@PRODUCTID@",$id,$html);
     print $html;
 }
@@ -150,6 +151,12 @@ function isRegistered($x)
 }
 function isLoggedOut($x){
     return $x ? 'logoutmessage' : 'hidden';
+}
+function addedToCart($x)
+{return $x ? 'addedmessage' : 'hidden';
+}
+function removeCart($x){
+    return $x ? 'removemessage' : 'hidden';
 }
 /*
 function printRegistrationInput($type,$placeholder,$id,$name,$value){

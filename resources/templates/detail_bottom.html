@@ -16,7 +16,8 @@
        <form  method="POST" action="../resources/lib/manage_cart.php" id="cart_form@PRODUCTID@">
            <input type="hidden" name="product_id" value="@PRODUCTID@">
            <input type="number" name='quantity' value="1" />
-        </form>
+           <input type="hidden" name="product_name" value="@PRODUCTNAME@">
+       </form>
    </div>
      <a href="javascript:{}" onclick="document.getElementById('cart_form@PRODUCTID@').submit();">
          <div class="addToCart green_button">Add to cart</div></a>

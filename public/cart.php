@@ -15,6 +15,8 @@ printFooter();
 
 
 ?>
+
+</div>
 </body>
 
 </html>

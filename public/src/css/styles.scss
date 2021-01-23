@@ -332,13 +332,41 @@ body {
   flex-direction: column;
   min-height: 100vh;
   &.detail {
+    header {
+      margin-bottom: 40px;
+    }
+    p.addedmessage {
+      transition: all 8s ease;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: $black;
+      font-size: 18px;
+      font-family: "Raleway", sans-serif;
+      font-weight: 400;
+      text-align: center;
+      background-color: rgba(26, 188, 120, 0.5);
+    }
+    p.removemessage {
+      transition: all 8s ease;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: $black;
+      font-size: 18px;
+      font-family: "Raleway", sans-serif;
+      font-weight: 400;
+      text-align: center;
+      background-color: red;
+    }
+    p.hidden {
+      display: none;
+    }
     .container {
       background-color: #f0f0f0;
       width: 90%;
       margin-left: auto;
       margin-right: auto;
       margin-top: 25px;
-      padding-top: 40px;
+
       padding-bottom: 40px;
       display: flex;
       .slider {
@@ -888,7 +916,8 @@ body.home {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  p.registered {
+  p.registered,
+  p.addedmessage {
     transition: all 8s ease;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -899,7 +928,8 @@ body.home {
     text-align: center;
     background-color: rgba(26, 188, 120, 0.5);
   }
-  p.logoutmessage {
+  p.logoutmessage,
+  p.removemessage {
     transition: all 8s ease;
     padding-top: 10px;
     padding-bottom: 10px;

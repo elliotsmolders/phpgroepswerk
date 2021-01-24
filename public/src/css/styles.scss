@@ -956,12 +956,41 @@ body.home {
       font-family: "Raleway", sans-serif;
       color: $black;
     }
-    .sortCategory,
-    .sortBrand,
-    .sortPrice,
-    .sortRating {
-      border-color: gray;
-      select {
+    form {
+      display: flex;
+      .sortCategory,
+      .sortBrand,
+      .sortPrice,
+      .sortRating {
+        border-color: gray;
+        select {
+          text-align: center;
+          padding: 8px 12px;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          font-size: 14px;
+          font-weight: 700;
+          font-family: "Raleway", sans-serif;
+          color: $black;
+          &:focus,
+          &:hover {
+            border-radius: 5px;
+            outline: none;
+            box-shadow: 0 0 2px gray;
+          }
+          option {
+            text-align: center;
+            background-color: rgba(240, 239, 239, 0.918);
+            &:first-child {
+              display: none;
+            }
+            color: $black;
+          }
+        }
+      }
+      button {
+        margin-left: 15px;
         padding: 8px 12px;
         background-color: transparent;
         border: none;
@@ -969,33 +998,29 @@ body.home {
         font-size: 14px;
         font-weight: 700;
         font-family: "Raleway", sans-serif;
-        color: $black;
-        &:focus,
+        color: $lightgreen;
         &:hover {
           border-radius: 5px;
           outline: none;
           box-shadow: 0 0 2px gray;
+          opacity: 0.7;
         }
-        option {
-          background-color: rgba(240, 239, 239, 0.918);
-          &:first-child {
-            display: none;
-          }
-          color: $black;
+        &:active {
+          background-color: rgba(169, 169, 169, 0.247);
         }
       }
     }
   }
 
   .containerProducts {
+    padding-top: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
     min-height: 100px;
-    //remove bgc when done
-    background-color: rgb(255, 255, 0, 0.2);
     margin: 0 auto;
     width: 85%;
+    padding-bottom: 20px;
     .product {
       &:hover .productImage .overlay {
         visibility: visible;
@@ -1004,11 +1029,14 @@ body.home {
         position: relative;
         margin-right: 10px;
         margin-top: 10px;
-        width: 200px;
+        width: 170px;
+        height: 170px;
 
         a {
           img {
+            object-fit: cover;
             width: 100%;
+            height: 100%;
 
             &:hover {
               opacity: 0.9;
@@ -1126,6 +1154,7 @@ body.home {
 // ***** HOME MEDIA QUERIES START *****
 @media screen and (max-width: 600px) {
   body.home {
+    .sortBar form,
     .sortBar {
       flex-direction: column;
       align-items: flex-start;
@@ -1140,6 +1169,10 @@ body.home {
           padding: 2px;
         }
       }
+    }
+    .sortBar form button {
+      margin-left: 6px;
+      padding-left: 0;
     }
   }
 }

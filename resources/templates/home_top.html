@@ -1,36 +1,38 @@
 <div class="sortBar">
-  <h1>Sort by:</h1>
+  <h1>Filter:</h1>
+  <form action="index.php" method="get">
   <div class="sortCategory">
-    <select name="category" id="category">
-      <option value="" disabled selected>Category</option>
-      <option value="1">category 1</option>
-      <option value="2">category 2</option>
+    <select name="category" id="category" >
+      <option value="" selected disabled hidden>Category</option>
+      <option value="chair">chair</option>
+      <option value="table">table</option>
       <option value="3">category 3</option>
       <option value="4">category 4</option>
     </select>
   </div>
   <div class="sortPrice">
-    <select name="price" id="price">
-      <option value="" disabled selected>Price</option>
-      <option value="1">Ascending</option>
-      <option value="2">Descending</option>
+    <select name="priceRating" id="price" >
+      <option value="" disabled selected>Sort by:</option>
+      <option value="pro_price ASC">Price Low -> High</option>
+      <option value="pro_price DESC">Price High -> Low</option>
+      <option value="pro_rating ASC">Rating Low -> High</option>
+      <option value="pro_rating DESC">Rating High -> Low</option>
     </select>
   </div>
-  <div class="sortRating">
-    <select name="rating" id="rating">
-      <option value="" disabled selected>Rating</option>
-      <option value="1">Ascending</option>
-      <option value="2">Descending</option>
-    </select>
-  </div>
-  <div class="sortBrand">
-    <select name="brand" id="brand">
-      <option value="" disabled selected>Brand</option>
-      <option value="1">brand 1</option>
-      <option value="2">brand 2</option>
-      <option value="3">brand 3</option>
-      <option value="4">brand 4</option>
-    </select>
-  </div>
+
+    <div class="sortBrand">
+      <select name="brand" id="brand">
+        <option value="" disabled selected>Brand</option>
+        <option value="Eames">Eames</option>
+        <option value="IKEA">IKEA</option>
+        <option value="3">brand 3</option>
+        <option value="4">brand 4</option>
+      </select>
+    </div>
+    <button type="submit">submit</button>
+  </form>
 </div>
+
+
+
 <div class="containerProducts">

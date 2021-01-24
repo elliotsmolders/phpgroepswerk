@@ -18,10 +18,40 @@ printNav();
 <?php
 printHomeTop();
 
-//get all the data of all products
-$data = GetData('SELECT * FROM products');
+$sqlorder = '';
+// if filter options for order by price/rating has been selected add order by part of sql to $sqlorder
+if (isset($_GET['priceRating'])) {
+    $string = explode(' ', $_GET['priceRating']);
+    $sqlorder = "ORDER BY $string[0] $string[1]";
+}
+// if category selected, make sql statement that selects all products from that category
+if (isset($_GET['category'])) {
+    $category = $_GET['category'];
+    $sql = 'SELECT * FROM products where pro_category ="';
+    $sql .= $category . '"';
+    // if brand is also selected, modify sql statement to select products from given category from given brand
+    if (isset($_GET['brand'])) {
+        $brand = $_GET['brand'];
+        $sql .= 'and pro_brand ="';
+        $sql .= $brand . '"';
+    }
+}
+// if no category is given but a brand is given, select all products from that brand
+elseif (isset($_GET['brand'])) {
+    $brand = $_GET['brand'];
+    $sql = 'SELECT * FROM products where pro_brand ="';
+    $sql .= $brand . '"';
+}
+// no category or brand filter given => select all products
+else {
+    $sql = 'SELECT * FROM products';
+}
+// add order by statement to our sql (if not given this is just an empty string '')
+$sql .= $sqlorder;
+// executes the sql, stores fetched data in $data
+$data = GetData($sql);
+// foreach data element we print out a product card, with fetched data of that element
 foreach ($data as $row) {
-
     printHomeProduct($row['pro_image1'], $row['pro_price'], $row['pro_name'], $row['pro_rating'], $row["pro_unique_id"]);
 }
 printHomeBottom();

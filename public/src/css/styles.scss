@@ -333,7 +333,6 @@ body {
   min-height: 100vh;
   &.detail {
     header {
-      margin-bottom: 40px;
     }
     p.addedmessage {
       transition: all 8s ease;
@@ -365,6 +364,7 @@ body {
       width: 90%;
       margin-left: auto;
       margin-right: auto;
+      margin-top: 15px;
       padding-top: 40px;
       padding-bottom: 40px;
       display: flex;
@@ -1180,6 +1180,35 @@ body.home {
   }
 }
 // ***** HOME MEDIA QUERIES END *****
+
+// ***** ERROR PAGE START *****
+body.errorpage {
+  background-image: url("../images/background3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .errorcontainer {
+    background-color: rgb(255, 255, 255, 0.3);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 18px;
+      font-family: "Raleway", sans-serif;
+      margin-bottom: 15px;
+    }
+    .buttoncontainer {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+// ***** ERROR PAGE END *****
 
 //BUTTON STYLING
 body {

@@ -27,6 +27,12 @@ function printNav()
     }
 }
 
+function printErrorPage()
+{
+    $html = file_get_contents("../resources/templates/errorpage.html");
+    print $html;
+}
+
 
 
 //prints footer.html

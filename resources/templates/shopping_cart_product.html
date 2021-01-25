@@ -18,9 +18,20 @@
   <td class="table_product_name"><a href="detail.php?product=@PRODUCTID@">@PRODUCTNAME@</a></td>
   <td class="table_price">@PRICE@€</td>
   <td class="table_quantity">
-    <button class="minus">-</button>
-    <input type="number" name="" id="quantity" value="@QUANTITY@" min="0" />
-    <button class="plus">+</button>
+    <form  method="POST" action="../resources/lib/manage_cart.php">
+      <input type="hidden" name="product_id" value="@PRODUCTID@">
+      <input type="hidden" name="product_name" value="@PRODUCTNAME@">
+      <input type="hidden" name="quantity" value="-1">
+      <button class="minus" type="submit">-</button>
+    </form>
+    <input type="number" readonly name="" id="quantity@PRODUCTID@" value="@QUANTITY@" min="0" />
+    <form  method="POST" action="../resources/lib/manage_cart.php">
+      <input type="hidden" name="product_id" value="@PRODUCTID@">
+      <input type="hidden" name="product_name" value="@PRODUCTNAME@">
+      <input type="hidden" name="quantity" value="1">
+      <button class="plus" type="submit">+</button>
+    </form>
   </td>
+
   <td class="table_total">@TOTAL@€</td>
 </tr>

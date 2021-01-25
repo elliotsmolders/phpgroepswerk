@@ -1,9 +1,6 @@
 
 <?php
-error_reporting( E_ALL );
-ini_set( 'display_errors', 1 );
 $public_access = true;
-
 require_once 'autoload.php';
 
 
@@ -12,7 +9,6 @@ $user_data = LoginCheck();
 if ( $user_data )
 {   $_SESSION['user'] = $user_data[0];
     $_SESSION['msgs']['login'] = "Signed in as " . $_SESSION['user']['kla_username'];
-    print_r($_SESSION['user']['kla_username']);
     header("Location: ../../public/index.php");
 }
 else

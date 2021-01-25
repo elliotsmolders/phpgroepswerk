@@ -5,7 +5,6 @@ session_start();
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
 $app_root = "/" . $request_uri[1] . "/" . $request_uri[2];
 require_once 'access_controle.php';
-
 require_once 'validate.php';
 require_once 'connection_data.php';
 require_once 'html_components.php';

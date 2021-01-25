@@ -1,8 +1,6 @@
 <?php
 session_start();
 $sending_form_uri = $_SERVER['HTTP_REFERER'];
-
-
 //if $_SESSION['car'] does not exist, create it
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
@@ -34,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $_SESSION['msgs']['removedCart'] = "You have succesfully removed $quantity $name to your cart";
             }
             //if the product exists in our session cart and we remove more than we have, remove the item from cart
-            if (isset($_SESSION['cart']["$id"]) and ($_SESSION['cart']["$id"]) + $quantity <= 0) {
+            elseif (isset($_SESSION['cart']["$id"]) and ($_SESSION['cart']["$id"]) + $quantity <= 0) {
                 $_SESSION['msgs']['removedCart'] = "You have succesfully removed " . ($_SESSION['cart']["$id"]) . " $name from your cart";
                 unset($_SESSION['cart']["$id"]);
             }

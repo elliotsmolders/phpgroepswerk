@@ -44,7 +44,7 @@ elseif (isset($_GET['brand'])) {
 }
 // no category or brand filter given => select all products
 else {
-    $sql = 'SELECT * FROM products';
+    $sql = 'SELECT * FROM products ';
 }
 // add order by statement to our sql (if not given this is just an empty string '')
 $sql .= $sqlorder;

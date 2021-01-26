@@ -5,6 +5,8 @@ printHead('home');
 printNav();
 ?>
 <!-- printing out the $msgs -->
+<p class="<?php echo editMessage($msgs['edited']) ?>" id="edited_message"><?php print_r($msgs['edited']); ?></p>
+<p class="<?php echo deleteMessage($msgs['delete']) ?>" id="deleted_message"><?php print_r($msgs['delete']); ?></p>
 <p class="<?php echo removeCart($msgs['removedCart']) ?>" id="removedCart_message"><?php print_r($msgs['removedCart']); ?></p>
 <p class="<?php echo addedToCart($msgs['addedToCart']) ?>" id="addedToCart_message"><?php print_r($msgs['addedToCart']); ?></p>
 <p class="<?php echo isRegistered($msgs['registered']) ?>" id="register_message"><?php print_r($msgs['registered']); ?></p>
@@ -64,6 +66,10 @@ printFooter();
     window.setTimeout("closeMessage3();", 10000);
     window.setTimeout("hideMessage4();", 3000);
     window.setTimeout("closeMessage4();", 10000);
+    window.setTimeout("hideMessage5();", 3000);
+    window.setTimeout("closeMessage5();", 10000);
+    window.setTimeout("hideMessage6();", 3000);
+    window.setTimeout("closeMessage6();", 10000);
 
     function hideMessage1() {
         document.getElementById("register_message").style.backgroundColor = 'transparent';
@@ -95,6 +101,20 @@ printFooter();
 
     function closeMessage4() {
         document.getElementById("addedToCart_message").style.display = " none";
+    }
+    function hideMessage5() {
+        document.getElementById("edited_message").style.backgroundColor = 'transparent';
+    }
+
+    function closeMessage5() {
+        document.getElementById("edited_message").style.display = " none";
+    }
+    function hideMessage6() {
+        document.getElementById("deleted_message").style.backgroundColor = 'transparent';
+    }
+
+    function closeMessage6() {
+        document.getElementById("deleted_message").style.display = " none";
     }
     // JS to hide loader on page load
     window.addEventListener("load", function() {

@@ -11,6 +11,15 @@ function radiobutton($option){
         return '';
     }
 }
+function radiobutton2($option){
+    if($option === $_SESSION['user']['kla_geslacht'] ){
+
+        return ('checked');
+    }
+    else{
+        return '';
+    }
+}
 //check if there is an email error
 function emailError(){
     if(isset($_SESSION['OLD_ERROR']['usr_email_error'])) {

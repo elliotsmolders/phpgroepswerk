@@ -164,15 +164,10 @@ function addedToCart($x)
 function removeCart($x){
     return $x ? 'removemessage' : 'hidden';
 }
-/*
-function printRegistrationInput($type,$placeholder,$id,$name,$value){
-    $html = file_get_contents("../resources/templates/registration_form_input.html");
-    $html = str_replace("@TYPE@", $type, $html);
-    $html = str_replace("@NAME@", $type, $html);
-    $html = str_replace("@ID@", $type, $html);
-    $html = str_replace("@PLACEHOLDER@", $type, $html);
-    $html = str_replace("@VALUE@", $type, $html);
+function deleteMessage($x){
+    return $x ? 'deletemessage' : 'hidden';
+}
+function editMessage($x){
+    return $x ? 'editedmessage' : 'hidden';
+}
 
-
-
-}*/

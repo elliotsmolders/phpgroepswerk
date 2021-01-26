@@ -33,7 +33,7 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" )
     ValidateUsrPasswordConfirm($_POST["password_user"],$_POST["password_user_confirm"]);
 
 //terugkeren naar afzender als er een fout is
-    if ( count($_SESSION['errors']) > 0 )
+    if ( isset($_SESSION['errors']) && count($_SESSION['errors']) > 0 )
     {
         $_SESSION['OLD_POST_SIGNUP'] = $_POST;
         $_SESSION['OLD_ERROR'] = $_SESSION['errors'];

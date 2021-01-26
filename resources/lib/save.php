@@ -1,6 +1,4 @@
 <?php
-error_reporting( E_ALL );
-ini_set( 'display_errors', 1 );
 $public_access = true;
 
 require_once 'autoload.php';
@@ -46,9 +44,6 @@ if ( $_SERVER['REQUEST_METHOD'] == "POST" )
 
     to keep old post values on error set every input fields value to  (use registrion_form_input.html + printregistrationinput for this maybe?)
     value="echo isset($_SESSION['OLD_POST']["voornaam_user"]) ? $_SESSION['OLD_POST']["voornaam_user"] : '';"}*/
-
-
-
 
 //setting form values as variables
     $voornaam = $_POST["voornaam_user"];

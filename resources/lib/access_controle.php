@@ -11,8 +11,5 @@ function CheckAccess()
 //otherwise sent to no access page
 function GoToNoAccess()
 {
-    global $app_root;
-
-    header("Location: ../../public/no_access.php");
-    exit;
+    header("Location:https://wdev.be/elliot21/groepswerk_php_25_01/public/no_access.php");    exit;
 }

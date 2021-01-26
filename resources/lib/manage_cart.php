@@ -2,7 +2,7 @@
 session_start();
 require_once 'access_controle.php';
 $sending_form_uri = $_SERVER['HTTP_REFERER'];
-//if $_SESSION['car'] does not exist, create it
+//if $_SESSION['cart'] does not exist, create it
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }

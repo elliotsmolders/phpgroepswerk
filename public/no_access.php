@@ -5,5 +5,4 @@ printHead('errorpage');
 printErrorPage();
 ?>
 </body>
-
 </html>

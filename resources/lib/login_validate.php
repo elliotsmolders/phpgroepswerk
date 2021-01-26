@@ -1,4 +1,4 @@
-    <?php
+<?php
 session_start();
 $public_access = true;
 require_once 'autoload.php';

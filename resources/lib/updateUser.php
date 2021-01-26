@@ -36,6 +36,8 @@ kla_geslacht ="'.$gender.'" WHERE kla_id="'.$id.'"';
     $_SESSION['user'] = $user_data[0];
     //add message (will also add message if nothing changed, fix later if time
     $_SESSION['msgs']['edited'] = "Your profile information has been changed!";
-
+}
+else{
+    $_SESSION['msgs']['logged_out']='This email is already registered to another account';
 }
 header("Location: ../../public/index.php");
